@@ -55,11 +55,6 @@ def draw_vernier(dwg, x, y):
     # Draw major Ticks
     draw_p100_tick(dwg, x, y, v_tens_tick_length, v_fives_tick_length)
 
-    # Make second major tick shorter to emphasize that it's the end, not the
-    # start of a vernier
-    draw_p100_tick(dwg, x, vernier_tick_size * 10 + y, v_fives_tick_length,
-                   v_ones_tick_length)
-
     # Draw minor ticks
     for i in range(1, 10):
         draw_p100_tick(dwg, x, vernier_tick_size * i + y, v_ones_tick_length, v_ones_tick_length)
@@ -83,7 +78,7 @@ def main():
         draw_vernier(dwg, 10, 10+(p_tick_size*10) * i)
 
     # Add a '*' to the vernier that I want to be used as the zero marker
-    dwg.add(dwg.text('*', insert=(16*mm, (9 + p_tick_size*10 * 3 ) * mm),
+    dwg.add(dwg.text('*', insert=(16*mm, (9 + p_tick_size*10 * 4 ) * mm),
                      stroke='none', fill=tick_color,
                      font_size='10mm', font_family="Helvetica", rotate=[90]))
 
